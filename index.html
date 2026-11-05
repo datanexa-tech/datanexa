@@ -341,15 +341,13 @@ ev.preventDefault();fm.className='msg';
 if(!validate()){var bad=f.querySelector('[aria-invalid=true]');if(bad)bad.focus();return}
 var ep=f.getAttribute('data-endpoint');
 var MAIL='team.datanexa@gmail.com';
-function viaMail(){var g=function(i){return f.querySelector('#'+i).value.trim()};
-var b='Name: '+g('n')+'\nEmail: '+g('em')+'\nCompany: '+g('co')+'\nService: '+g('sv')+'\n\n'+g('ms');
-location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('Website inquiry: '+g('sv'))+'&body='+encodeURIComponent(b);
-fm.textContent='Opening your email app to send the inquiry. If nothing opens, please email us at '+MAIL+'.';fm.className='msg show'}
-if(!ep){viaMail();return}
+function fail(){fm.textContent='Sorry, your inquiry could not be sent right now. Please try again, or email us directly at '+MAIL+'.';fm.className='msg show'}
+if(!ep){fail();return}
+var btn=f.querySelector('button[type=submit],button:not([type])'),bt=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Sending…'}
 var d=new FormData(f);d.append('_subject','New DataNexa website inquiry');d.append('_template','table');d.append('_captcha','false');
 fetch(ep,{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success!=='false',j:j}})}).then(function(x){
 if(x.ok){fm.textContent='Thank you! Your inquiry has been sent. We’ll be in touch soon.';fm.className='msg show';f.reset()}else{throw 0}
-}).catch(function(){viaMail()})
+}).catch(fail).then(function(){if(btn){btn.disabled=false;btn.textContent=bt}})
 });
 f.addEventListener('input',function(ev){if(ev.target.getAttribute('aria-invalid')==='true')validate()});
 })();
