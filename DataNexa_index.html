@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DataNexa | Turn Data Into Directions</title>
+<meta name="description" content="DataNexa helps businesses transform raw data into clear insights through business analytics, Power BI dashboards, SQL analysis, Python automation, and data transformation.">
+<meta name="theme-color" content="#0E0A1B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DataNexa | Turn Data Into Directions">
+<meta property="og:description" content="Transforming raw data into clear insights, smarter decisions, and measurable growth.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E0A1B'/%3E%3Cpath d='M50 12L16 31V69L50 88L84 69V36' fill='none' stroke='%23FF4F8B' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M38 66V54M50 66V44M62 66V34' stroke='%23FF9248' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='78' cy='20' r='6' fill='%23BF85FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0A1B;--bg2:#170F28;--blue:#FF4F8B;--cyan:#BF85FF;--tx:#F8FAFC;--mut:#A99BC2;--line:rgba(190,160,230,.16);--lt:#fff;--ltx:#0F172A;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
+.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:14px}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800}
+h2{font-size:clamp(1.9rem,3.8vw,2.7rem);font-weight:800;max-width:720px}
+h3{font-size:1.1rem;font-weight:700}
+p.lead{color:var(--mut);font-size:1.08rem;max-width:620px;margin-top:16px}
+.grad{background:linear-gradient(90deg,#FF9248,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .2s,background .2s}
+.btn.p{background:linear-gradient(90deg,#FF8A4C,#FF4F8B);color:#1a0a14;box-shadow:0 8px 28px -10px var(--blue)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px var(--blue)}
+.btn.s{border-color:var(--line);background:rgba(255,255,255,.03);color:var(--tx)}
+.btn.s:hover{border-color:var(--blue);background:rgba(255,79,139,.08)}
+.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(14,10,27,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.logo svg{width:38px;height:38px}.wm{font-family:Poppins,Manrope,sans-serif;letter-spacing:-.02em;font-size:1.35rem;line-height:1}.wm b{font-weight:600;color:#fff}.wm i{font-style:normal;font-weight:300;background:linear-gradient(90deg,#FF9248,#FF4F8B,#BF85FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:6px;align-items:center}
+.links a.l{padding:8px 14px;border-radius:8px;color:var(--mut);font-size:.92rem;font-weight:600;transition:color .2s,background .2s}
+.links a.l:hover{color:var(--tx);background:rgba(255,255,255,.05)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--tx);border-radius:10px;width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
+.mnav{display:none}
+@media(max-width:860px){.links{display:none}.burger{display:inline-flex}
+.mnav{display:grid;gap:4px;max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 24px}
+.mnav.open{max-height:420px;padding-bottom:18px}
+.mnav a{padding:12px 4px;border-bottom:1px solid var(--line);font-weight:600}
+.mnav .btn{margin-top:10px;justify-content:center;border:0}}
+/* hero */
+.hero{padding:72px 0 88px;background:radial-gradient(700px 400px at 85% 10%,rgba(255,79,139,.16),transparent 70%),radial-gradient(500px 300px at 10% 90%,rgba(191,133,255,.08),transparent 70%)}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(190,160,230,.18) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(ellipse at 70% 30%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000,transparent 70%);pointer-events:none}
+.hg{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center;position:relative}
+.hero .eyebrow{font-size:.72rem}
+.hero p.lead{font-size:1.15rem}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.sub{margin-top:22px;color:var(--mut);font-size:.9rem;display:flex;gap:8px;align-items:center}
+.sub:before{content:"";width:28px;height:1px;background:var(--cyan)}
+@media(max-width:940px){.hg{grid-template-columns:1fr;gap:44px}}
+/* dashboard */
+.dash{background:linear-gradient(160deg,#231238,#150c24);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 60px -30px var(--blue);animation:rise .9s ease both,float 7s ease-in-out 1s infinite}
+.dh{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--mut);margin-bottom:14px}
+.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:#3a2457}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.k{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.k small{color:var(--mut);font-size:.68rem;display:block}
+.k b{font-size:1.1rem;display:block}.k em{font-style:normal;font-size:.68rem;color:var(--cyan)}
+.pn{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}
+.pn small{color:var(--mut);font-size:.7rem}
+.row2{display:grid;grid-template-columns:1.2fr 1fr;gap:10px}
+.dash svg{display:block;width:100%;height:auto}
+.draw{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2s .5s ease forwards}
+.bar{transform-origin:bottom;transform-box:fill-box;animation:grow .9s ease both}
+.note{font-size:.66rem;color:var(--mut);text-align:right;margin-top:8px}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes grow{from{transform:scaleY(0)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}@keyframes float{50%{transform:translateY(-6px)}}
+/* strip */
+.strip{padding:0;border-block:1px solid var(--line);background:var(--bg2)}
+.sg{display:grid;grid-template-columns:repeat(4,1fr)}
+.sg div{display:flex;gap:12px;align-items:center;justify-content:center;padding:26px 12px;font-weight:700;font-size:.95rem}
+.sg .ic{color:var(--cyan)}
+@media(max-width:760px){.sg{grid-template-columns:1fr 1fr}.sg div{justify-content:flex-start}}
+/* about */
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ag p{color:var(--mut);margin-top:16px}
+.cards3{display:grid;gap:14px;margin-top:28px}
+.pc{display:flex;gap:16px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}
+.pc .ic{color:var(--blue);margin-top:3px}.pc p{margin:4px 0 0;font-size:.92rem}
+.geo{border:1px solid var(--line);border-radius:24px;background:var(--bg2);padding:20px;aspect-ratio:1;max-width:460px;margin-inline:auto;width:100%}
+@media(max-width:900px){.ag{grid-template-columns:1fr}}
+/* services */
+.svc{background:var(--bg2)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.card{display:flex;flex-direction:column;padding:28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,79,139,.5);box-shadow:0 20px 40px -24px var(--blue)}
+.bi{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(255,79,139,.12);color:var(--blue);margin-bottom:18px}
+.card p{color:var(--mut);font-size:.93rem;margin:10px 0 20px;flex:1}
+.card a{font-size:.88rem;font-weight:700;color:var(--cyan)}.card a:hover{text-decoration:underline}
+@media(max-width:980px){.sgrid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.sgrid{grid-template-columns:1fr}}
+/* approach */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;position:relative;list-style:none;padding:0}
+.steps:before{content:"";position:absolute;top:21px;left:21px;right:21px;height:2px;background:linear-gradient(90deg,#FF9248,var(--blue),var(--cyan));opacity:.5}
+.steps li{position:relative}
+.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:2px solid var(--blue);font-weight:800;font-size:.85rem;color:var(--cyan);position:relative;margin-bottom:20px}
+.steps p{color:var(--mut);font-size:.92rem;margin-top:8px}
+@media(max-width:860px){.steps{grid-template-columns:1fr;gap:30px;padding-left:0}
+.steps:before{top:20px;bottom:20px;left:21px;right:auto;width:2px;height:auto}
+.steps li{padding-left:66px}.num{position:absolute;left:0;top:0;margin:0}}
+/* why (light) */
+.why{background:var(--lt);color:var(--ltx)}
+.why .eyebrow{color:#D6336C}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.wc{padding:28px;border:1px solid #e2e8f0;border-radius:18px;background:#f8fafc;transition:box-shadow .25s,transform .25s}
+.wc:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px #FF4F8B}
+.wc .ic{color:#D6336C;margin-bottom:14px}.wc p{color:#475569;margin-top:8px;font-size:.95rem}
+@media(max-width:700px){.wg{grid-template-columns:1fr}}
+/* cta */
+.cta{padding:72px 0}
+.cb{text-align:center;padding:72px 28px;border-radius:28px;border:1px solid rgba(255,79,139,.35);background:radial-gradient(600px 260px at 50% 0%,rgba(255,79,139,.28),transparent 70%),radial-gradient(500px 240px at 50% 120%,rgba(191,133,255,.18),transparent 70%),var(--bg2)}
+.cb h2{margin-inline:auto}.cb p.lead{margin-inline:auto}.cb .btn{margin-top:30px}
+/* contact */
+.cg{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;margin-top:8px}
+.ph{margin-top:32px;display:grid;gap:12px}
+.ph div{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px dashed var(--line);border-radius:12px;color:var(--mut);font-size:.9rem}
+.ph .ic{color:var(--cyan)}.ph a:hover{color:var(--cyan)}
+form{padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--bg2);display:grid;gap:18px}
+.f label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
+.f label span{color:var(--mut);font-weight:400}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--tx);font:inherit;font-size:.95rem}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+.err{color:#fda4af;font-size:.8rem;min-height:1em;margin-top:5px}
+[aria-invalid=true]{border-color:#fb7185}
+.msg{padding:14px 16px;border-radius:12px;font-size:.9rem;border:1px solid var(--line);display:none}
+.msg.show{display:block;border-color:rgba(191,133,255,.4);background:rgba(191,133,255,.07)}
+@media(max-width:900px){.cg{grid-template-columns:1fr;gap:36px}}
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 32px;background:var(--bg2)}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+footer p{color:var(--mut);font-size:.9rem;margin-top:10px;max-width:340px}
+footer h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);margin-bottom:14px}
+footer ul{list-style:none;padding:0;display:grid;gap:8px;font-size:.92rem}
+footer ul a:hover{color:var(--cyan)}
+.copy{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:.82rem}
+@media(max-width:700px){.fg{grid-template-columns:1fr 1fr}.fg>:first-child{grid-column:1/-1}}
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}.draw{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></symbol>
+<symbol id="i-dash" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M17 5a3.5 3.5 0 010 7M22 20c0-2.5-1.5-4.5-4-5.3"/></symbol>
+<symbol id="i-wand" viewBox="0 0 24 24"><path d="M4 20L16 8M14 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1zM19 12l.7 1.3L21 14l-1.3.7L19 16l-.7-1.3L17 14l1.3-.7z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+<symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M9 6h3a3 3 0 013 3v6"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 13a2.5 2.5 0 015 0v3"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></symbol>
+<symbol id="i-gh" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 4.5v-3.5c0-1 .1-1.400-.5-2 2.800-.3 5.500-1.400 5.500-6a4.600 4.600 0 00-1.300-3.200 4.200 4.200 0 00-.1-3.200s-1-.3-3.500 1.300a12 12 0 00-6.200 0C6.400 2.800 5.400 3.100 5.400 3.100a4.200 4.200 0 00-.1 3.200A4.600 4.600 0 004 9.500c0 4.600 2.700 5.700 5.500 6-.6.600-.6 1.200-.5 2V21"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="logo" viewBox="0 0 100 100"><defs><linearGradient id="lg" gradientUnits="userSpaceOnUse" x1="10" y1="96" x2="92" y2="10"><stop offset="0" stop-color="#FF9248"/><stop offset=".55" stop-color="#FF4F8B"/><stop offset="1" stop-color="#B66DFF"/></linearGradient></defs><path d="M50 4L8 27V73L50 96L92 73V27" fill="none" stroke="url(#lg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="31" y="54" width="10" height="20" rx="5" fill="url(#lg)"/><rect x="45" y="42" width="10" height="32" rx="5" fill="url(#lg)"/><rect x="59" y="28" width="10" height="46" rx="5" fill="url(#lg)"/><circle cx="78" cy="15" r="5" fill="#BF85FF"/><circle cx="78" cy="15" r="10" fill="none" stroke="rgba(191,133,255,.4)" stroke-width="2"/></symbol>
+</defs></svg>
+
+<header>
+<div class="wrap nav">
+<a href="#home" class="logo" aria-label="DataNexa home"><svg><use href="#logo"/></svg><span class="wm"><b>data</b><i>nexa</i></span></a>
+<nav class="links" aria-label="Primary">
+<a class="l" href="#home">Home</a><a class="l" href="#about">About</a><a class="l" href="#services">Services</a><a class="l" href="#approach">Our Approach</a><a class="l" href="#contact">Contact</a>
+<a class="btn p" href="#contact" style="margin-left:10px;padding:10px 20px">Let’s Talk</a>
+</nav>
+<button class="burger" id="bg" aria-label="Toggle menu" aria-expanded="false" aria-controls="mn"><svg class="ic"><use href="#i-menu"/></svg></button>
+</div>
+<nav class="mnav" id="mn" aria-label="Mobile">
+<a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#approach">Our Approach</a><a href="#contact">Contact</a>
+<a class="btn p" href="#contact">Let’s Talk</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="wrap hg">
+<div>
+<p class="eyebrow">Data Analytics • Business Intelligence • Automation</p>
+<h1>Turn Data Into <span class="grad">Directions.</span></h1>
+<p class="lead">We help businesses transform raw data into clear insights, smarter decisions, and measurable growth.</p>
+<div class="ctas"><a class="btn p" href="#contact">Let’s Talk</a><a class="btn s" href="#services">Explore Our Services</a></div>
+<p class="sub">From raw data to actionable business intelligence.</p>
+</div>
+<div class="dash" role="img" aria-label="Sample analytics dashboard with revenue trend, KPIs, bar chart and customer split">
+<div class="dh"><div class="dots"><i></i><i></i><i></i></div><span>Performance Overview</span><span>Last 12 months</span></div>
+<div class="kp">
+<div class="k"><small>Revenue</small><b>$482K</b><em>▲ 12.4%</em></div>
+<div class="k"><small>Orders</small><b>3,920</b><em>▲ 8.1%</em></div>
+<div class="k"><small>Retention</small><b>71%</b><em>▲ 3.2%</em></div>
+</div>
+<div class="pn"><small>Revenue trend</small>
+<svg viewBox="0 0 400 130" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF4F8B" stop-opacity=".35"/><stop offset="1" stop-color="#FF4F8B" stop-opacity="0"/></linearGradient><linearGradient id="g2"><stop offset="0" stop-color="#FF9248"/><stop offset=".5" stop-color="#FF4F8B"/><stop offset="1" stop-color="#BF85FF"/></linearGradient></defs>
+<g stroke="rgba(190,160,230,.12)"><path d="M0 25h400M0 65h400M0 105h400"/></g>
+<path d="M0 100 L40 88 L80 95 L120 70 L160 76 L200 52 L240 60 L280 38 L320 44 L360 22 L400 12 V130 H0Z" fill="url(#g1)"/>
+<path class="draw" pathLength="600" d="M0 100 L40 88 L80 95 L120 70 L160 76 L200 52 L240 60 L280 38 L320 44 L360 22 L400 12" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="400" cy="12" r="4.500" fill="#BF85FF"/></svg></div>
+<div class="row2">
+<div class="pn"><small>Sales by quarter</small>
+<svg viewBox="0 0 200 90" aria-hidden="true"><g fill="#FF4F8B"><rect class="bar" x="12" y="45" width="30" height="45" rx="5" opacity=".55"/><rect class="bar" x="58" y="30" width="30" height="60" rx="5" opacity=".7" style="animation-delay:.1s"/><rect class="bar" x="104" y="38" width="30" height="52" rx="5" opacity=".85" style="animation-delay:.2s"/></g><rect class="bar" x="150" y="8" width="30" height="82" rx="5" fill="#BF85FF" style="animation-delay:.3s"/></svg></div>
+<div class="pn"><small>Customer segments</small>
+<svg viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke-width="12" transform="rotate(-90 45 45)"><circle cx="45" cy="45" r="30" stroke="#2c1a45"/><circle cx="45" cy="45" r="30" stroke="#FF4F8B" stroke-dasharray="104 189"/><circle cx="45" cy="45" r="30" stroke="#BF85FF" stroke-dasharray="52 189" stroke-dashoffset="-108"/></g><g font-size="9" fill="#A99BC2"><circle cx="92" cy="30" r="3" fill="#FF4F8B"/><text x="99" y="33">New</text><circle cx="92" cy="48" r="3" fill="#BF85FF"/><text x="99" y="51">Loyal</text></g></svg></div>
+</div>
+<p class="note">Sample data for demonstration only</p>
+</div>
+</div>
+</section>
+
+<section class="strip" aria-label="Value propositions"><div class="wrap sg">
+<div><svg class="ic"><use href="#i-target"/></svg>Data-Driven Decisions</div>
+<div><svg class="ic"><use href="#i-eye"/></svg>Clear Business Insights</div>
+<div><svg class="ic"><use href="#i-flow"/></svg>Smarter Workflows</div>
+<div><svg class="ic"><use href="#i-up"/></svg>Measurable Growth</div>
+</div></section>
+
+<section id="about"><div class="wrap ag">
+<div class="rv">
+<p class="eyebrow">About DataNexa</p>
+<h2>Making Data Work for Your Business.</h2>
+<p>At DataNexa, we believe data should do more than fill spreadsheets. It should help businesses understand performance, uncover opportunities, and move forward with confidence.</p>
+<p>From organizing complex datasets to building interactive dashboards and automating reports, we turn scattered information into insights that support better business decisions.</p>
+<div class="cards3">
+<div class="pc"><svg class="ic"><use href="#i-eye"/></svg><div><h3>Clarity</h3><p>We simplify complex data into insights that are easy to understand and act on.</p></div></div>
+<div class="pc"><svg class="ic"><use href="#i-bulb"/></svg><div><h3>Intelligence</h3><p>We use analytics, visualization, and automation to uncover meaningful patterns.</p></div></div>
+<div class="pc"><svg class="ic"><use href="#i-up"/></svg><div><h3>Growth</h3><p>We help businesses identify opportunities and make more informed decisions.</p></div></div>
+</div></div>
+<div class="geo rv" aria-hidden="true"><svg viewBox="0 0 300 300" width="100%" height="100%">
+<g stroke="rgba(190,160,230,.14)"><path d="M0 75h300M0 150h300M0 225h300M75 0v300M150 0v300M225 0v300"/></g>
+<g stroke="#FF4F8B" stroke-width="1.500" opacity=".7"><path d="M50 230L110 160L170 185L230 90L260 60M110 160L130 80L230 90M170 185L215 235"/></g>
+<g fill="#170F28" stroke="#FF4F8B" stroke-width="2"><circle cx="50" cy="230" r="8"/><circle cx="110" cy="160" r="10"/><circle cx="170" cy="185" r="8"/><circle cx="130" cy="80" r="7"/><circle cx="215" cy="235" r="7"/></g>
+<circle cx="230" cy="90" r="12" fill="#BF85FF"/><circle cx="260" cy="60" r="6" fill="#BF85FF" opacity=".6"/></svg></div>
+</div></section>
+
+<section class="svc" id="services"><div class="wrap">
+<p class="eyebrow">Services</p>
+<h2>Analytics Solutions Built Around Your Business.</h2>
+<p class="lead">Practical data solutions that help you understand performance, improve efficiency, and discover opportunities for growth.</p>
+<div class="sgrid">
+<article class="card rv"><div class="bi"><svg class="ic"><use href="#i-chart"/></svg></div><h3>Business &amp; Sales Analytics</h3><p>Understand your business performance, track sales trends, identify opportunities, and make better decisions with data-backed insights.</p><a href="#contact" data-svc="Business & Sales Analytics">Discuss This Service →</a></article>
+<article class="card rv"><div class="bi"><svg class="ic"><use href="#i-dash"/></svg></div><h3>Power BI &amp; Tableau Dashboards</h3><p>Turn complex datasets into interactive dashboards that make important metrics easier to monitor, explore, and communicate.</p><a href="#contact" data-svc="Power BI & Tableau Dashboards">Discuss This Service →</a></article>
+<article class="card rv"><div class="bi"><svg class="ic"><use href="#i-db"/></svg></div><h3>SQL-Based Data Analysis</h3><p>Query, organize, and analyze structured data to uncover trends, answer business questions, and support informed decisions.</p><a href="#contact" data-svc="SQL-Based Data Analysis">Discuss This Service →</a></article>
+<article class="card rv"><div class="bi"><svg class="ic"><use href="#i-code"/></svg></div><h3>Python Automation &amp; Reporting</h3><p>Automate repetitive data tasks, streamline reporting workflows, and reduce manual effort with practical Python solutions.</p><a href="#contact" data-svc="Python Automation & Reporting">Discuss This Service →</a></article>
+<article class="card rv"><div class="bi"><svg class="ic"><use href="#i-users"/></svg></div><h3>Customer &amp; Marketing Analysis</h3><p>Explore customer behavior, campaign performance, engagement patterns, and audience trends to support smarter marketing decisions.</p><a href="#contact" data-svc="Customer & Marketing Analysis">Discuss This Service →</a></article>
+<article class="card rv"><div class="bi"><svg class="ic"><use href="#i-wand"/></svg></div><h3>Data Cleaning &amp; Transformation</h3><p>Improve data quality by handling missing values, resolving inconsistencies, standardizing formats, and preparing datasets for analysis.</p><a href="#contact" data-svc="Data Cleaning & Transformation">Discuss This Service →</a></article>
+</div></div></section>
+
+<section id="approach"><div class="wrap">
+<p class="eyebrow">Our Approach</p>
+<h2>From Raw Data to Clear Direction.</h2>
+<ol class="steps">
+<li class="rv"><span class="num">01</span><h3>Discover</h3><p>We understand your business goals, challenges, available data, and key questions.</p></li>
+<li class="rv"><span class="num">02</span><h3>Prepare</h3><p>We clean, organize, and transform your data into a reliable foundation for analysis.</p></li>
+<li class="rv"><span class="num">03</span><h3>Analyze</h3><p>We uncover patterns, measure performance, and develop meaningful visualizations and insights.</p></li>
+<li class="rv"><span class="num">04</span><h3>Deliver</h3><p>We present clear findings, practical recommendations, and reporting solutions that support better decisions.</p></li>
+</ol></div></section>
+
+<section class="why" id="why"><div class="wrap">
+<p class="eyebrow">Why DataNexa</p>
+<h2>Less Guesswork. More Clarity.</h2>
+<div class="wg">
+<div class="wc rv"><svg class="ic"><use href="#i-target"/></svg><h3>Business-Focused Insights</h3><p>We focus on insights that help answer real business questions.</p></div>
+<div class="wc rv"><svg class="ic"><use href="#i-eye"/></svg><h3>Clear Visualizations</h3><p>We make complex information easier to understand through effective data storytelling.</p></div>
+<div class="wc rv"><svg class="ic"><use href="#i-flow"/></svg><h3>Efficient Workflows</h3><p>We identify opportunities to simplify reporting and reduce repetitive manual work.</p></div>
+<div class="wc rv"><svg class="ic"><use href="#i-bulb"/></svg><h3>Practical Solutions</h3><p>We build analytics solutions around your goals, data, and business needs.</p></div>
+</div></div></section>
+
+<section class="cta" aria-labelledby="ct"><div class="wrap"><div class="cb rv">
+<h2 id="ct">Your Data Has a Direction. <span class="grad">Let’s Find It.</span></h2>
+<p class="lead">Have a business challenge, a messy dataset, or a reporting process that needs improvement? Let’s explore how data analytics can help.</p>
+<a class="btn p" href="#contact">Start a Conversation</a>
+</div></div></section>
+
+<section id="contact"><div class="wrap">
+<p class="eyebrow">Contact</p>
+<h2>Let’s Turn Your Data Into Direction.</h2>
+<p class="lead">Tell us about your business goals or data challenges. We’d love to explore how we can help.</p>
+<div class="cg">
+<div class="ph" style="align-content:start">
+<div><svg class="ic"><use href="#i-mail"/></svg><a href="mailto:team.datanexa@gmail.com">team.datanexa@gmail.com</a></div>
+<div><svg class="ic"><use href="#i-in"/></svg><a href="https://www.linkedin.com/company/datanexa-tech/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn — DataNexa</a></div>
+<div><svg class="ic"><use href="#i-ig"/></svg><a href="https://www.instagram.com/data_nexa?mdxt=ajhhbG9mOHRkYXVp" target="_blank" rel="noopener noreferrer">Instagram — @data_nexa</a></div>
+</div>
+<form id="cf" novalidate data-endpoint="https://formsubmit.co/ajax/team.datanexa@gmail.com" aria-label="Contact form">
+<div class="f"><label for="n">Full Name</label><input id="n" name="name" autocomplete="name" required aria-describedby="e-n"><div class="err" id="e-n"></div></div>
+<div class="f"><label for="em">Work Email</label><input id="em" name="email" type="email" autocomplete="email" required aria-describedby="e-em"><div class="err" id="e-em"></div></div>
+<div class="f"><label for="co">Company Name <span>(optional)</span></label><input id="co" name="company" autocomplete="organization"></div>
+<div class="f"><label for="sv">Service of Interest</label><select id="sv" name="service" required aria-describedby="e-sv"><option value="">Select a service…</option><option>Business &amp; Sales Analytics</option><option>Power BI &amp; Tableau Dashboards</option><option>SQL-Based Data Analysis</option><option>Python Automation &amp; Reporting</option><option>Customer &amp; Marketing Analysis</option><option>Data Cleaning &amp; Transformation</option><option>Other</option></select><div class="err" id="e-sv"></div></div>
+<div class="f"><label for="ms">Message</label><textarea id="ms" name="message" required aria-describedby="e-ms"></textarea><div class="err" id="e-ms"></div></div>
+<button class="btn p" type="submit" style="justify-content:center">Send Inquiry</button>
+<div class="msg" id="fm" role="status" aria-live="polite"></div>
+</form>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="fg">
+<div><a href="#home" class="logo"><svg><use href="#logo"/></svg><span class="wm"><b>data</b><i>nexa</i></span></a><p style="letter-spacing:.3em;font-size:.7rem;margin-top:14px">DATA · CONNECTED · CLEAR</p><p><strong style="color:var(--tx)">Turn data into directions.</strong><br>Transforming raw data into clear insights and smarter business decisions.</p></div>
+<div><h3>Quick Links</h3><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#approach">Our Approach</a></li><li><a href="#contact">Contact</a></li></ul></div>
+<div><h3>Social</h3><ul><li><a href="mailto:team.datanexa@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/company/datanexa-tech/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://www.instagram.com/data_nexa?mdxt=ajhhbG9mOHRkYXVp" target="_blank" rel="noopener noreferrer">Instagram</a></li></ul></div>
+</div>
+<p class="copy" style="max-width:none">© <span id="yr">2026</span> DataNexa. All rights reserved.</p>
+</div></footer>
+
+<script>
+(function(){
+var bg=document.getElementById('bg'),mn=document.getElementById('mn');
+bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+mn.addEventListener('click',function(e){if(e.target.tagName==='A'){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')}});
+document.getElementById('yr').textContent=new Date().getFullYear();
+var rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(el){io.observe(el)})}else{rv.forEach(function(el){el.classList.add('in')})}
+var sv=document.getElementById('sv');
+document.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){sv.value=a.getAttribute('data-svc')})});
+var f=document.getElementById('cf'),fm=document.getElementById('fm');
+function setErr(id,m){var el=document.getElementById(id),inp=document.getElementById(id.replace('e-',''));el.textContent=m;inp.setAttribute('aria-invalid',m?'true':'false');return !m}
+function validate(){
+var ok=true,n=f.name.value.trim(),e=f.email.value.trim();
+ok=setErr('e-n',n?'':'Please enter your full name.')&&ok;
+ok=setErr('e-em',!e?'Please enter your work email.':(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)?'':'Please enter a valid email address.'))&&ok;
+ok=setErr('e-sv',f.service.value?'':'Please choose a service.')&&ok;
+ok=setErr('e-ms',f.message.value.trim().length>=10?'':'Please add a short message (at least 10 characters).')&&ok;
+return ok}
+f.addEventListener('submit',function(ev){
+ev.preventDefault();fm.className='msg';
+if(!validate()){var bad=f.querySelector('[aria-invalid=true]');if(bad)bad.focus();return}
+var ep=f.getAttribute('data-endpoint');
+var MAIL='team.datanexa@gmail.com';
+function viaMail(){var g=function(i){return f.querySelector('#'+i).value.trim()};
+var b='Name: '+g('n')+'\nEmail: '+g('em')+'\nCompany: '+g('co')+'\nService: '+g('sv')+'\n\n'+g('ms');
+location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('Website inquiry: '+g('sv'))+'&body='+encodeURIComponent(b);
+fm.textContent='Opening your email app to send the inquiry. If nothing opens, please email us at '+MAIL+'.';fm.className='msg show'}
+if(!ep){viaMail();return}
+var d=new FormData(f);d.append('_subject','New DataNexa website inquiry');d.append('_template','table');d.append('_captcha','false');
+fetch(ep,{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success!=='false',j:j}})}).then(function(x){
+if(x.ok){fm.textContent='Thank you! Your inquiry has been sent. We’ll be in touch soon.';fm.className='msg show';f.reset()}else{throw 0}
+}).catch(function(){viaMail()})
+});
+f.addEventListener('input',function(ev){if(ev.target.getAttribute('aria-invalid')==='true')validate()});
+})();
+</script>
+</body>
+</html>
