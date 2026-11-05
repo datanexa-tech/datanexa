@@ -296,7 +296,7 @@ footer ul a:hover{color:var(--cyan)}
 <div><svg class="ic"><use href="#i-in"/></svg><a href="https://www.linkedin.com/company/datanexa-tech/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn — DataNexa</a></div>
 <div><svg class="ic"><use href="#i-ig"/></svg><a href="https://www.instagram.com/data_nexa?mdxt=ajhhbG9mOHRkYXVp" target="_blank" rel="noopener noreferrer">Instagram — @data_nexa</a></div>
 </div>
-<form id="cf" novalidate data-endpoint="https://formsubmit.co/ajax/team.datanexa@gmail.com" aria-label="Contact form">
+<form id="cf" novalidate data-endpoint="https://api.web3forms.com/submit" aria-label="Contact form">
 <div class="f"><label for="n">Full Name</label><input id="n" name="name" autocomplete="name" required aria-describedby="e-n"><div class="err" id="e-n"></div></div>
 <div class="f"><label for="em">Work Email</label><input id="em" name="email" type="email" autocomplete="email" required aria-describedby="e-em"><div class="err" id="e-em"></div></div>
 <div class="f"><label for="co">Company Name <span>(optional)</span></label><input id="co" name="company" autocomplete="organization"></div>
@@ -341,11 +341,12 @@ ev.preventDefault();fm.className='msg';
 if(!validate()){var bad=f.querySelector('[aria-invalid=true]');if(bad)bad.focus();return}
 var ep=f.getAttribute('data-endpoint');
 var MAIL='team.datanexa@gmail.com';
+var ACCESS_KEY='0518220d-00e0-4788-97b2-f17e20a8390c';
 function fail(){fm.textContent='Sorry, your inquiry could not be sent right now. Please try again, or email us directly at '+MAIL+'.';fm.className='msg show'}
-if(!ep){fail();return}
+if(!ep||!ACCESS_KEY){fail();return}
 var btn=f.querySelector('button[type=submit],button:not([type])'),bt=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Sending…'}
-var d=new FormData(f);d.append('_subject','New DataNexa website inquiry');d.append('_template','table');d.append('_captcha','false');
-fetch(ep,{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success!=='false',j:j}})}).then(function(x){
+var d=new FormData(f);d.append('access_key',ACCESS_KEY);d.append('subject','New DataNexa website inquiry');d.append('from_name','DataNexa Website');
+fetch(ep,{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success===true,j:j}})}).then(function(x){
 if(x.ok){fm.textContent='Thank you! Your inquiry has been sent. We’ll be in touch soon.';fm.className='msg show';f.reset()}else{throw 0}
 }).catch(fail).then(function(){if(btn){btn.disabled=false;btn.textContent=bt}})
 });
